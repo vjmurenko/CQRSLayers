@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ApplicationServices.Implementsion\ApplicationServices.Implementsion.csproj" />
     <ProjectReference Include="..\ApplicationServices.Interfaces\ApplicationServices.Interfaces.csproj" />
     <ProjectReference Include="..\DataAccess.MsSql\DataAccess.MsSql.csproj" />

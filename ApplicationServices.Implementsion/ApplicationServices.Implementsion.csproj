@@ -8,4 +8,9 @@
       <PackageReference Include="AutoMapper" Version="11.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ApplicationServices.Interfaces\ApplicationServices.Interfaces.csproj" />
+      <ProjectReference Include="..\Infrastracture.Interfaces\Infrastracture.Interfaces.csproj" />
+    </ItemGroup>
+
 </Project>

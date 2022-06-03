@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Entities;
+﻿using Entities;
 using Infrastracture.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
