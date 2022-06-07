@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ApplicationServices.Interfaces;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Entities;
 using Infrastracture.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -20,14 +18,6 @@ namespace ApplicationServices.Implementsion
             _mapper = mapper;
             _dbContext = dbContext;
             _currentUserService = currentUserService;
-        }
-
-        public async Task<OrderDto> GetOrderByIdAsync(int id)
-        {
-            return await _dbContext.Orders
-                .Where(o => o.Id == id)
-                .ProjectTo<OrderDto>(_mapper.ConfigurationProvider)
-                .SingleAsync();
         }
 
         public async Task<int> CreateOrder(ChangeOrderDto changeOrderDto)

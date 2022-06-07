@@ -9,16 +9,18 @@ namespace WebApi.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private readonly IReadOnlyOrderService _readOnlyOrderService;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(IOrderService orderService, IReadOnlyOrderService readOnlyOrderService)
         {
             _orderService = orderService;
+            _readOnlyOrderService = readOnlyOrderService;
         }
 
         [HttpGet("{id}")]
         public async Task<OrderDto> Get(int id)
         {
-            return await _orderService.GetOrderByIdAsync(id);
+            return await _readOnlyOrderService.GetOrderByIdAsync(id);
         }
 
         [HttpPost]
