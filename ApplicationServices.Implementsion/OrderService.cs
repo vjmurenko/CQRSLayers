@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using ApplicationServices.Interfaces;
 using AutoMapper;
 using Entities;
@@ -12,12 +13,14 @@ namespace ApplicationServices.Implementsion
         private readonly IMapper _mapper;
         private readonly IDbContext _dbContext;
         private readonly ICurrentUserService _currentUserService;
+        private readonly IStatisticService _statisticService;
 
-        public OrderService(IMapper mapper, IDbContext dbContext, ICurrentUserService currentUserService)
+        public OrderService(IMapper mapper, IDbContext dbContext, ICurrentUserService currentUserService, IStatisticService statisticService)
         {
             _mapper = mapper;
             _dbContext = dbContext;
             _currentUserService = currentUserService;
+            _statisticService = statisticService;
         }
 
         public async Task<int> CreateOrder(ChangeOrderDto changeOrderDto)
@@ -31,6 +34,8 @@ namespace ApplicationServices.Implementsion
 
         public async Task EditOrder(int id, ChangeOrderDto changeOrderDto)
         {
+            await _statisticService.WriteStatisticAsync("Order", changeOrderDto.Items.Select(s => s.ProductId));
+            
             var order = await _dbContext.Orders
                 .Include(o => o.Items)
                 .FirstAsync(o => o.Id == id);

@@ -34,6 +34,7 @@ namespace WebApi {
 			services.AddDbContext<IReadOnlyDbContext, ReadOnlyAppDbContext>(builder =>
 				builder.UseSqlServer(Configuration.GetConnectionString("Database")));
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
+			services.AddScoped<IStatisticService, StatisticService>();
 
 		}
 
