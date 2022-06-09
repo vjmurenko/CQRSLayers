@@ -1,4 +1,4 @@
-﻿using ApplicationServices.Interfaces;
+﻿using Infrastracture.Interfaces;
 
 namespace WebApi
 {

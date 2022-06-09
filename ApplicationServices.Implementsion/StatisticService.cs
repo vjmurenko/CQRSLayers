@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ApplicationServices.Interfaces;
+using ApplicationServices.Interfaces.Order;
 
-namespace ApplicationServices.Implementsion
-{
-    public class StatisticService  : IStatisticService
+namespace ApplicationServices.Implementsion {
+	public class StatisticService  : IStatisticService
     {
         public Task WriteStatisticAsync(string area, int id)
         {

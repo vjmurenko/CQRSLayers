@@ -5,10 +5,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ApplicationServices.Implementsion;
-using ApplicationServices.Interfaces;
+using ApplicationServices.Implementsion.OrderServices;
+using ApplicationServices.Implementsion.ProductServices;
 using DataAccess.MsSql;
 using Infrastracture.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ApplicationServices.Interfaces.Order;
+using ApplicationServices.Interfaces.Product;
 
 namespace WebApi {
 	public class Startup {
@@ -28,6 +31,8 @@ namespace WebApi {
 
 			services.AddScoped<IOrderService, OrderService>();
 			services.AddScoped<IReadOnlyOrderService, ReadOnlyOrderService>();
+			services.AddScoped<IProductService, ProductService>();
+			services.AddScoped<IReadOnlyProductService, ReadOnlyProductService>();
 			services.AddAutoMapper(typeof(MapperProfile));
 			services.AddDbContext<IDbContext, AppDbContext>(builder =>
 				builder.UseSqlServer(Configuration.GetConnectionString("Database")));
@@ -35,7 +40,6 @@ namespace WebApi {
 				builder.UseSqlServer(Configuration.GetConnectionString("Database")));
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
 			services.AddScoped<IStatisticService, StatisticService>();
-
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

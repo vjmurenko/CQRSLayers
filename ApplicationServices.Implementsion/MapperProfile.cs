@@ -1,10 +1,12 @@
-﻿using ApplicationServices.Interfaces;
+﻿using ApplicationServices.Interfaces.Order;
+using ApplicationServices.Interfaces.Order.Dtos;
+using ApplicationServices.Interfaces.Product;
+using ApplicationServices.Interfaces.Product.Dtos;
 using AutoMapper;
 using Entities;
 
-namespace ApplicationServices.Implementsion
-{
-    public class MapperProfile : Profile
+namespace ApplicationServices.Implementsion {
+	public class MapperProfile : Profile
     {
         public MapperProfile()
         {
@@ -12,6 +14,8 @@ namespace ApplicationServices.Implementsion
             CreateMap<OrderItem, OrderItemDto>().ReverseMap();
             CreateMap<ChangeOrderDto, Order>();
 
+            CreateMap<Product, ProductDto>();
+            CreateMap<ChangeProductDto, Product>();
         }
     }
 }

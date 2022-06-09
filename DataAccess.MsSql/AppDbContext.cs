@@ -1,5 +1,4 @@
-﻿using Entities;
-using Infrastracture.Interfaces;
+﻿using Infrastracture.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.MsSql

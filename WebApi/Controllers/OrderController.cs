@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using ApplicationServices.Interfaces;
+using ApplicationServices.Interfaces.Order;
+using ApplicationServices.Interfaces.Order.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
-{
-    [ApiController]
+namespace WebApi.Controllers {
+	[ApiController]
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
@@ -20,19 +20,19 @@ namespace WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<OrderDto> Get(int id)
         {
-            return await _readOnlyOrderService.GetOrderByIdAsync(id);
+            return await _readOnlyOrderService.Get(id);
         }
 
         [HttpPost]
         public async Task<int> Create([FromBody]ChangeOrderDto changeOrderDto)
         {
-            return await _orderService.CreateOrder(changeOrderDto);
+            return await _orderService.Create(changeOrderDto);
         }
 
         [HttpPut("{id}")]
         public async Task Edit(int id,[FromBody] ChangeOrderDto changeOrderDto)
         { 
-            await _orderService.EditOrder(id, changeOrderDto);
+            await _orderService.Update(id, changeOrderDto);
         }
     }
 }
