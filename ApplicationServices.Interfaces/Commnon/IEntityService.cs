@@ -6,5 +6,6 @@ namespace ApplicationServices.Interfaces.Commnon
 	{
 		Task<int> Create(TDto entity);
 		Task Update(int id, TDto entity);
+		Task Delete(int id);
 	}
 }

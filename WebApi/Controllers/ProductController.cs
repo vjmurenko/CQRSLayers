@@ -35,5 +35,11 @@ namespace WebApi.Controllers
 		{
 			await _productService.Update(id, changeProductDto);
 		}
+
+		[HttpDelete("{id}")]
+		public async Task Delete(int id)
+		{
+			await _productService.Delete(id);
+		}
 	}
 }

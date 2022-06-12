@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using ApplicationServices.Implementsion.Common;
 using ApplicationServices.Interfaces.Order;
@@ -30,6 +31,11 @@ namespace ApplicationServices.Implementsion.OrderServices
 		{
 			await _statisticService.WriteStatisticAsync("Order", tDto.Items.Select(i => i.ProductId));
 			await base.Update(id, tDto);
+		}
+
+		public override Task Delete(int id)
+		{
+			throw new NotSupportedException();
 		}
 
 		protected override void IniializeNewEntity(Order entity)
