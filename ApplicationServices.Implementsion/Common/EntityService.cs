@@ -9,8 +9,8 @@ namespace ApplicationServices.Implementsion.Common
 {
     public abstract class EntityService<TEntity, TDto> : IEntityService<TDto> where TEntity : Entity, new()
     {
-        private readonly IDbContext _dbContext;
-        private readonly IMapper _mapper;
+        protected readonly IDbContext _dbContext;
+        protected readonly IMapper _mapper;
 
         protected EntityService(IDbContext dbContext, IMapper mapper)
         {

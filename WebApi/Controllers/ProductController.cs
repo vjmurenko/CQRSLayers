@@ -41,5 +41,11 @@ namespace WebApi.Controllers
 		{
 			await _productService.Delete(id);
 		}
+
+		[HttpDelete]
+		public  Task DeleteAll(DeleteAllDto deleteAllDto)
+		{
+			 return _productService.DeleteAll(deleteAllDto);
+		}
 	}
 }
