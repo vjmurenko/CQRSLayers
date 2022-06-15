@@ -17,6 +17,7 @@ namespace WebApi.Controllers {
             _readOnlyOrderService = readOnlyOrderService;
         }
 
+        [CheckOrderFilter]
         [HttpGet("{id}")]
         public async Task<OrderDto> Get(int id)
         {
@@ -29,6 +30,7 @@ namespace WebApi.Controllers {
             return await _orderService.Create(changeOrderDto);
         }
 
+        [CheckOrderFilter]
         [HttpPut("{id}")]
         public async Task Edit(int id,[FromBody] ChangeOrderDto changeOrderDto)
         { 

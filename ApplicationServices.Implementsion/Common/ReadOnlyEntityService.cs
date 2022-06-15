@@ -11,8 +11,8 @@ namespace ApplicationServices.Implementsion.Common
 {
 	public abstract class ReadOnlyEntityService<TEntity, TDto> : IReadOnlyEntityService<TDto> where TEntity : Entity
 	{
-		private readonly IReadOnlyDbContext _readOnlyDbContext;
-		private readonly IMapper _mapper;
+		protected readonly IReadOnlyDbContext _readOnlyDbContext;
+		protected readonly IMapper _mapper;
 
 		protected ReadOnlyEntityService(IReadOnlyDbContext readOnlyDbContext, IMapper mapper)
 		{
