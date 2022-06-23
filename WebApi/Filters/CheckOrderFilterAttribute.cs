@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WebApi
+namespace WebApi.Filters
 {
 	public class CheckOrderFilterAttribute : ActionFilterAttribute
 	{

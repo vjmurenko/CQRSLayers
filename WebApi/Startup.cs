@@ -22,12 +22,11 @@ namespace WebApi {
 		public IConfiguration Configuration { get; }
 
 		// This method gets called by the runtime. Use this method to add services to the container.
-		public void ConfigureServices(IServiceCollection services) {
+		public void ConfigureServices(IServiceCollection services)
+		{
 
 			services.AddControllers();
-			services.AddSwaggerGen(c => {
-				c.SwaggerDoc("v1",new OpenApiInfo { Title = "WebApi",Version = "v1" });
-			});
+			services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebApi", Version = "v1"}); });
 
 			services.AddScoped<IOrderService, OrderService>();
 			services.AddScoped<IReadOnlyOrderService, ReadOnlyOrderService>();
@@ -40,6 +39,8 @@ namespace WebApi {
 				builder.UseSqlServer(Configuration.GetConnectionString("Database")));
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
 			services.AddScoped<IStatisticService, StatisticService>();
+			// services.Decorate<IReadOnlyOrderService, ReadOnlyOrderServiceDecorator>();
+			// services.Decorate<IOrderService, OrderServiceDecorator>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
