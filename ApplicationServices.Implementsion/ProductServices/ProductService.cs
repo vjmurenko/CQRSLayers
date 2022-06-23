@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ApplicationServices.Implementsion.Common;
 using ApplicationServices.Interfaces.Product;
 using ApplicationServices.Interfaces.Product.Dtos;

@@ -2,10 +2,8 @@
 using System.Threading.Tasks;
 using ApplicationServices.Interfaces.Order;
 using ApplicationServices.Interfaces.Order.Dtos;
-using AutoMapper;
 using Infrastracture.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ApplicationServices.Implementsion.OrderServices
 {

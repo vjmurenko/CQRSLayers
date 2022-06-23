@@ -1,6 +1,4 @@
-﻿using ApplicationServices.Interfaces.Order;
-using ApplicationServices.Interfaces.Order.Dtos;
-using ApplicationServices.Interfaces.Product;
+﻿using ApplicationServices.Interfaces.Order.Dtos;
 using ApplicationServices.Interfaces.Product.Dtos;
 using AutoMapper;
 using Entities;
